@@ -1,0 +1,12 @@
+hostname AdminRouter
+
+int g0/0
+description Connection to AdminSwitch
+ip addr 223.4.0.97 255.255.255.240
+no shut
+
+int g0/1
+description Connection to CentralRouter
+ip addr 223.4.0.146 255.255.255.252
+no shut
+

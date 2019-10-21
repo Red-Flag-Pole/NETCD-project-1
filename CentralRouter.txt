@@ -1,0 +1,17 @@
+hostname CentralRouter
+
+int s0/0/0
+ip addr 223.4.0.142 255.255.255.252 
+clock rate 4000000
+description Connection to MainRouter
+no shut
+
+int g0/1
+ip addr 223.4.0.145 255.255.255.252
+no shut
+description Connection to AdminRouter
+
+int s0/0/1
+description Connection to ISPRouter
+no shut
+ip addr 200.200.10.1 255.255.255.252

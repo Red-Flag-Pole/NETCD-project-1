@@ -1,0 +1,27 @@
+hostname MainRouter
+
+int s0/0/0 
+ip addr 223.4.0.141 255.255.255.252
+description Connection to CentralRouter
+no shutdown
+
+int s0/0/1
+ip addr 223.4.0.138 255.255.255.252
+description Connection to RSalesRouter
+no shutdown
+clock rate 4000000
+
+int g0/0
+no shutdown 
+
+int g0/0.10
+encap dot1q 10
+ip addr 223.4.0.1 255.255.255.192
+
+int g0/0.20
+encap dot1q 20
+ip addr 223.4.0.65 255.255.255.224
+
+int g0/0.30
+encap dot1q 30
+ip addr 223.4.0.97 255.255.255.240

@@ -1,0 +1,6 @@
+hostname ISPRouter
+
+int s0/0/0
+clock rate 4000000
+no shut
+description Connection to CentralRouter
