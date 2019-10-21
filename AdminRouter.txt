@@ -10,3 +10,13 @@ description Connection to CentralRouter
 ip addr 223.4.0.146 255.255.255.252
 no shut
 
+
+
+# OSPF 
+int lo0
+ip addr 3.3.3.3 255.255.255.255
+no shut
+
+router ospf 50
+network 223.4.0.96 0.0.0.15 area 0
+network 223.4.0.144 0.0.0.3 area 0

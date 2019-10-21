@@ -25,3 +25,16 @@ ip addr 223.4.0.65 255.255.255.224
 int g0/0.30
 encap dot1q 30
 ip addr 223.4.0.97 255.255.255.240
+
+
+# OSPF 
+int lo0
+ip addr 2.2.2.2 255.255.255.255
+no shut
+
+router ospf 50
+network 223.4.0.0 0.0.0.63 area 0
+network 223.4.0.64 0.0.0.31 area 0
+network 223.4.0.96 0.0.0.15 area 0
+network 223.4.0.136 0.0.0.3 area 0
+network 223.4.0.140 0.0.0.3 area 0

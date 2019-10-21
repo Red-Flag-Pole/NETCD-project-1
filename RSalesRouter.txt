@@ -9,3 +9,13 @@ int s0/0/0
 ip addr 223.4.0.137 255.255.255.252
 description Connection to MainRouter
 no shutdown
+
+
+# OSPF 
+int lo0
+ip addr 1.1.1.1 255.255.255.255
+no shut
+
+router ospf 50
+network 223.4.0.112 0.0.0.15 area 0
+network 223.4.0.136 0.0.0.3 area 0
