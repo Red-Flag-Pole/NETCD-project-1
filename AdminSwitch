@@ -4,3 +4,10 @@ int vlan 1
 ip addr 223.4.0.194 255.255.255.224
 no shut
 ip default-gateway 223.4.0.193
+
+int range f0/1-14
+switchport mode access
+no shutdown
+
+int range f0/15-24
+shutdown
