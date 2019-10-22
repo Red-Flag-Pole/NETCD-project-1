@@ -26,6 +26,10 @@ int g0/0.30
 encap dot1q 30
 ip addr 223.4.0.97 255.255.255.240
 
+int g0/0.40
+encap dot1q 40
+ip addr 223.4.0.161 255.255.255.225
+
 
 # OSPF 
 int lo0
