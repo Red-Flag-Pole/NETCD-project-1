@@ -1,0 +1,36 @@
+hostname MainF3Switch
+
+int G0/1
+switchport mode trunk
+switchport trunk native vlan 99
+description Connection to MainF1Switch
+no shut
+
+int G0/2
+switchport mode trunk
+switchport trunk native vlan 99
+description Connection to MainF2Switch
+no shut
+
+int range F0/1 - F0/16
+switchport mode access 
+switchport access vlan 10
+description For RnD staff
+no shut
+
+int range F0/17 - F0/20
+switchport mode access 
+switchport access vlan 20
+description For Sales and Marketing staff
+no shut
+
+int range F0/21 - F0/24
+shutdown
+
+vlan 40
+name Management
+
+int vlan 40
+ip addr 223.4.0.164 255.255.255.224
+no shut
+ip default-gateway 223.4.0.161

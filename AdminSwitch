@@ -1,0 +1,6 @@
+hostname AdminSwitch
+
+int vlan 1
+ip addr 223.4.0.194 255.255.255.224
+no shut
+ip default-gateway 223.4.0.193
