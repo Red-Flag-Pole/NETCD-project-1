@@ -20,7 +20,7 @@ ip addr 200.200.100.1 255.255.255.252
 ip nat outside
 
 
-# OSPF 
+! OSPF 
 int lo0
 ip addr 4.4.4.4 255.255.255.255
 no shut
