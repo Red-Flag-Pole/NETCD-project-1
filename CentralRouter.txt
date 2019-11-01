@@ -4,17 +4,20 @@ int s0/0/0
 ip addr 223.4.0.142 255.255.255.252 
 clock rate 4000000
 description Connection to MainRouter
+ip nat inside
 no shut
 
 int g0/1
 ip addr 223.4.0.145 255.255.255.252
 no shut
 description Connection to AdminRouter
+ip nat inside
 
 int s0/0/1
 description Connection to ISPRouter
 no shut
-ip addr 200.200.10.1 255.255.255.252
+ip addr 200.200.100.1 255.255.255.252
+ip nat outside
 
 
 # OSPF 
@@ -28,4 +31,9 @@ network 223.4.0.144 0.0.0.3 area 0
 default-information originate
 
 # default route
-ip route 0.0.0.0 0.0.0.0 200.200.10.2
+ip route 0.0.0.0 0.0.0.0 200.200.100.2
+
+ip access extended NAT-inside 
+permit ip 223.4.0.0 0.0.0.255 any
+
+ip nat inside source list NAT-inside interface s0/0/1 overload
