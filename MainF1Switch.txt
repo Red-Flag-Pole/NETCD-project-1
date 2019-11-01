@@ -42,10 +42,26 @@ no shut
 int range G1/0/22 - G1/0/24
 shutdown
 
+vlan 10
+name RnD
+
+vlan 20
+name SnM
+
+vlan 30
+name Server
+
 vlan 40
 name Management
+
+vtp mode server
+vtp domain nss
 
 int vlan 40
 ip addr 223.4.0.162 255.255.255.224
 no shut
 ip default-gateway 223.4.0.161
+
+
+! Set this as root bridge
+spanning-tree vlan 1,10,20,30,40 priority 8192

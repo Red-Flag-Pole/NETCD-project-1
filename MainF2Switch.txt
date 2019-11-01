@@ -27,10 +27,14 @@ no shut
 int range F0/21 - F0/24
 shutdown
 
-vlan 40
-name Management
+vtp mode client
+vtp domain nss
 
 int vlan 40
 ip addr 223.4.0.163 255.255.255.224
 no shut
 ip default-gateway 223.4.0.161
+
+
+! Set this as root bridge
+spanning-tree vlan 1,10,20,30,40 priority 12288
