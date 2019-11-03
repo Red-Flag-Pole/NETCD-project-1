@@ -1,0 +1,11 @@
+en
+show ip ospf nei
+show ip ospf
+sshow vtp status
+show ip int brief
+show ip route
+
+en
+show spanning-tree
+show vtp status
+show ip int brief

@@ -1,0 +1,75 @@
+MainRouter>en
+MainRouter#show ip ospf nei
+
+
+Neighbor ID     Pri   State           Dead Time   Address         Interface
+4.4.4.4           0   FULL/  -        00:00:30    223.4.0.142     Serial0/0/0
+1.1.1.1           0   FULL/  -        00:00:33    223.4.0.137     Serial0/0/1
+MainRouter#show ip ospf
+ Routing Process "ospf 50" with ID 2.2.2.2
+ Supports only single TOS(TOS0) routes
+ Supports opaque LSA
+ SPF schedule delay 5 secs, Hold time between two SPFs 10 secs
+ Minimum LSA interval 5 secs. Minimum LSA arrival 1 secs
+ Number of external LSA 1. Checksum Sum 0x00a020
+ Number of opaque AS LSA 0. Checksum Sum 0x000000
+ Number of DCbitless external and opaque AS LSA 0
+ Number of DoNotAge external and opaque AS LSA 0
+ Number of areas in this router is 1. 1 normal 0 stub 0 nssa
+ External flood list length 0
+    Area BACKBONE(0)
+        Number of interfaces in this area is 5
+        Area has no authentication
+        SPF algorithm executed 11 times
+        Area ranges are
+        Number of LSA 5. Checksum Sum 0x0352a6
+        Number of opaque link LSA 0. Checksum Sum 0x000000
+        Number of DCbitless LSA 0
+        Number of indication LSA 0
+        Number of DoNotAge LSA 0
+        Flood list length 0
+
+
+MainRouter#show ip int brief
+Interface              IP-Address      OK? Method Status                Protocol 
+GigabitEthernet0/0     unassigned      YES unset  up                    up 
+GigabitEthernet0/0.10  223.4.0.1       YES manual up                    up 
+GigabitEthernet0/0.20  223.4.0.65      YES manual up                    up 
+GigabitEthernet0/0.30  223.4.0.97      YES manual up                    up 
+GigabitEthernet0/0.40  223.4.0.161     YES manual up                    up 
+GigabitEthernet0/1     unassigned      YES unset  administratively down down 
+GigabitEthernet0/2     unassigned      YES unset  administratively down down 
+Serial0/0/0            223.4.0.141     YES manual up                    up 
+Serial0/0/1            223.4.0.138     YES manual up                    up 
+Loopback0              2.2.2.2         YES manual up                    up 
+Vlan1                  unassigned      YES unset  administratively down down
+MainRouter#show ip route
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+       i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, ia - IS-IS inter area
+       * - candidate default, U - per-user static route, o - ODR
+       P - periodic downloaded static route
+
+Gateway of last resort is 223.4.0.142 to network 0.0.0.0
+
+     2.0.0.0/32 is subnetted, 1 subnets
+C       2.2.2.2/32 is directly connected, Loopback0
+     223.4.0.0/24 is variably subnetted, 15 subnets, 5 masks
+C       223.4.0.0/26 is directly connected, GigabitEthernet0/0.10
+L       223.4.0.1/32 is directly connected, GigabitEthernet0/0.10
+C       223.4.0.64/27 is directly connected, GigabitEthernet0/0.20
+L       223.4.0.65/32 is directly connected, GigabitEthernet0/0.20
+C       223.4.0.96/28 is directly connected, GigabitEthernet0/0.30
+L       223.4.0.97/32 is directly connected, GigabitEthernet0/0.30
+O       223.4.0.112/28 [110/65] via 223.4.0.137, 01:20:25, Serial0/0/1
+C       223.4.0.136/30 is directly connected, Serial0/0/1
+L       223.4.0.138/32 is directly connected, Serial0/0/1
+C       223.4.0.140/30 is directly connected, Serial0/0/0
+L       223.4.0.141/32 is directly connected, Serial0/0/0
+O       223.4.0.144/30 [110/65] via 223.4.0.142, 01:19:45, Serial0/0/0
+C       223.4.0.160/27 is directly connected, GigabitEthernet0/0.40
+L       223.4.0.161/32 is directly connected, GigabitEthernet0/0.40
+O       223.4.0.192/27 [110/66] via 223.4.0.142, 01:19:45, Serial0/0/0
+O*E2 0.0.0.0/0 [110/1] via 223.4.0.142, 01:20:25, Serial0/0/0
